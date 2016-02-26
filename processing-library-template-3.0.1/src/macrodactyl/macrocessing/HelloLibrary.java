@@ -25,7 +25,7 @@
  * @version     ##library.prettyVersion## (##library.version##)
  */
 
-package template.library;
+package macrodactyl.macrocessing;
 
 
 import processing.core.*;
