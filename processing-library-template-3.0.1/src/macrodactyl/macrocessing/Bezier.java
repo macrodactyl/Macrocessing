@@ -49,6 +49,15 @@ public class Bezier {
 		end_control = new Point(x3, y3);
 		end = new Point(x4, y4);
 	}
+	
+	public Bezier(PApplet theParent, Point start, Point start_control, Point end_control, Point end) {
+		myParent = theParent;
+		
+		this.start = start;
+		this.start_control = start_control;
+		this.end_control = end_control;
+		this.end = end;
+	}
 
 	/**
 	 * Constructs a Bezier whose start point, and start-control point, are based
@@ -76,6 +85,14 @@ public class Bezier {
 	    float control_coord = end_coord + (-control_delta);
 
 		return control_coord;
+	}
+	
+	public Point get_start() {
+		return start;
+	}
+	
+	public Point get_start_control() {
+		return start_control;
 	}
 	
 	public Point get_end() {
