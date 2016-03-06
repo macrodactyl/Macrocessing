@@ -34,10 +34,6 @@ public class Point {
 	
 	float xpos, ypos;	
 
-	/**
-	 * a Constructor, usually called in the setup() method in your sketch to
-	 * initialize and start the library.
-	 */
 	public Point(float x, float y) {
 		xpos = x;
 		ypos = y;

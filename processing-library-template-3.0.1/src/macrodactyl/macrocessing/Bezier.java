@@ -50,6 +50,11 @@ public class Bezier {
 		end = new Point(x4, y4);
 	}
 	
+	/**
+	 * Constructs a Bezier based on Points. 
+	 * 
+	 * @param theParent
+	 */
 	public Bezier(PApplet theParent, Point start, Point start_control, Point end_control, Point end) {
 		myParent = theParent;
 		
