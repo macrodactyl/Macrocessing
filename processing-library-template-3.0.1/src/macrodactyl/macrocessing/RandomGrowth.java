@@ -28,35 +28,48 @@
 package macrodactyl.macrocessing;
 
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
 import processing.core.*;
 
-public class Point {
-	
-	float xpos, ypos;	
+/**
+ * @example RandomGrowth 
+ */
 
-	public Point(float x, float y) {
-		xpos = x;
-		ypos = y;
+public class RandomGrowth {
+	
+	// myParent is a reference to the parent sketch
+	PApplet myParent;
+	ArrayDeque<Point> body;
+
+	public RandomGrowth(PApplet theParent) {
+		myParent = theParent;
+		body = new ArrayDeque<Point>();
+		Point start = new Point(0,0);
+		body.add(start);
 	}
 	
-	public float get_x() {
-		return xpos;
+	public void move() {
+		Point next = body.getLast().get_nearby_point();
+		body.add(next);
 	}
 	
-	public float get_y() {
-		return ypos;
+	public void draw() {
+		
+		Point prev = null;
+		Iterator<Point> iter = body.iterator();
+		
+		while (iter.hasNext()) {
+			
+			Point current = iter.next();
+						
+			if (prev != null) {
+				// draw body part
+				myParent.line(prev.get_x(), prev.get_y(), current.get_x(), current.get_y());
+			}
+			
+			prev = current;
+		}
 	}
 	
-	public Point get_nearby_point() {
-		
-		float min_delta = -10;
-		float max_delta = 10;
-		
-		float new_x = this.xpos + (ThreadLocalRandom.current().nextFloat() * (max_delta - min_delta) + min_delta);
-		float new_y = this.ypos + (ThreadLocalRandom.current().nextFloat() * (max_delta - min_delta) + min_delta);
-		
-		return new Point(new_x, new_y);
-	}
 }
 
