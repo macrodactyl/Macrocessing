@@ -30,6 +30,10 @@ package macrodactyl.macrocessing;
 
 import processing.core.*;
 
+/**
+ * @example BezierChain 
+ */
+
 public class Bezier {
 	
 	PApplet myParent;
@@ -39,6 +43,7 @@ public class Bezier {
 	 * a Constructor, usually called in the setup() method in your sketch to
 	 * initialize and start the library.
 	 * 
+	 * @example BezierChain
 	 * @param theParent
 	 */
 	public Bezier(PApplet theParent, float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
