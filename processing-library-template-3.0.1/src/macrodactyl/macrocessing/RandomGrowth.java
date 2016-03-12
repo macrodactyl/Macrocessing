@@ -32,7 +32,7 @@ import java.util.*;
 import processing.core.*;
 
 /**
- * @example RandomGrowth 
+ * @example RandomGrowthExample 
  */
 
 public class RandomGrowth {

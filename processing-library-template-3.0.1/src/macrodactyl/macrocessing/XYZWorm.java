@@ -32,6 +32,9 @@ import processing.core.*;
 import shapes3d.*;
 import shapes3d.animation.*;
 import shapes3d.utils.*;
+/**
+ * @example XYZWormExample 
+ */
 
 public class XYZWorm {
 	
