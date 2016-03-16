@@ -115,6 +115,33 @@ public class Bezier3d { // should this inherit from Bezier? Seems problematic. B
 	public Point3d get_end_control() {
 		return end_control;
 	}
-
+	
+	public float getLength() {
+		
+		float length = 0f;
+		
+		Point3d prev = null;
+		
+		// calculate approximate length of bezier by dividing into 10 straight lines 
+		for (int i = 0, j = 10; i <= j; i++) {
+			
+			float step = i / (float)j;
+			
+			Point3d current = new Point3d(
+				myParent.bezierPoint(start.get_x(), start_control.get_x(), end_control.get_x(), end.get_x(), step),
+				myParent.bezierPoint(start.get_y(), start_control.get_y(), end_control.get_y(), end.get_y(), step),
+				myParent.bezierPoint(start.get_z(), start_control.get_z(), end_control.get_z(), end.get_z(), step)
+			);
+			if (prev != null) {
+				length += myParent.dist(
+					prev.get_x(), prev.get_y(), prev.get_z(),
+					current.get_x(), current.get_y(), current.get_z()
+				);
+			}
+			prev = current;
+		}
+		
+		return length;
+	}
 }
 
